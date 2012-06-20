@@ -13,6 +13,6 @@ Showing a popover controller is as easy as this
 	popoverView.setDelegate(this);
 	popoverView.showPopoverFromRectInViewGroup(rootView, PopoverView.getFrameForView(v), PopoverView.PopoverArrowDirectionAny, true);
 	
-![Screenshot 1](https://raw.github.com/lupidan/PopoverController/master/screenshot1.png "Screenshot 1")
-![Screenshot 2](https://raw.github.com/lupidan/PopoverController/master/screenshot2.png "Screenshot 2")
-![Screenshot 3](https://raw.github.com/lupidan/PopoverController/master/screenshot3.png "Screenshot 3")
+![Screenshot 1](https://raw.github.com/lupidan/PopoverController/master/Screenshot1.png "Screenshot 1")
+![Screenshot 2](https://raw.github.com/lupidan/PopoverController/master/Screenshot2.png "Screenshot 2")
+![Screenshot 3](https://raw.github.com/lupidan/PopoverController/master/Screenshot3.png "Screenshot 3")
