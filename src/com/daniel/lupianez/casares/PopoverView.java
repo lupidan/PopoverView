@@ -1,7 +1,7 @@
 /**
  * Popover View
  *
- * Copyright 2012 Daniel Lupia–ez Casares <lupidan@gmail.com>
+ * Copyright 2012 Daniel Lupiaï¿½ez Casares <lupidan@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -811,6 +811,7 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 		//If we don't want animation
 		if (!animated){
 			//Just remove views
+			popoverView.removeAllViews();
 			removeAllViews();
 			superview.removeView(this);
 			//Tell delegate we did dismiss
@@ -837,6 +838,7 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 					@Override
 					public void onAnimationEnd(Animation animation) {
 						//Remove the view
+						popoverView.removeAllViews();
 						removeAllViews();
 						PopoverView.this.superview.removeView(PopoverView.this);
 						//End animation
