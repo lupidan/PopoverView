@@ -18,3 +18,6 @@ local.properties
 # Eclipse project files
 #.classpath
 #.project
+.settings/org.eclipse.jdt.core.prefs
+
+.DS_Store
