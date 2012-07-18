@@ -165,6 +165,10 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 	 */
 	private Point contentSizeForViewInPopover = new Point(0, 0);
 	/**
+	 * The real content size we will use (it considers the padding)
+	 */
+	private Point realContentSize = new Point(0, 0);
+	/**
 	 * A hash containing
 	 */
 	private Map<Integer, Rect> possibleRects;
@@ -397,11 +401,11 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 		
 		//Get final width and height
 		int finalX = xAvailable;
-		if ((contentSizeForViewInPopover.x > 0) && (contentSizeForViewInPopover.x < finalX))
-			finalX = contentSizeForViewInPopover.x;
+		if ((realContentSize.x > 0) && (realContentSize.x < finalX))
+			finalX = realContentSize.x;
 		int finalY = yAvailable;
-		if ((contentSizeForViewInPopover.y > 0) && (contentSizeForViewInPopover.y < finalY))
-			finalY = contentSizeForViewInPopover.y;
+		if ((realContentSize.y > 0) && (realContentSize.y < finalY))
+			finalY = realContentSize.y;
 		
 		//Get final origin X and Y
 		int originX = (originRect.centerX()-popoverLayoutRect.left) - (finalX/2) ;
@@ -435,11 +439,11 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 		
 		//Get final width and height
 		int finalX = xAvailable;
-		if ((contentSizeForViewInPopover.x > 0) && (contentSizeForViewInPopover.x < finalX))
-			finalX = contentSizeForViewInPopover.x;
+		if ((realContentSize.x > 0) && (realContentSize.x < finalX))
+			finalX = realContentSize.x;
 		int finalY = yAvailable;
-		if ((contentSizeForViewInPopover.y > 0) && (contentSizeForViewInPopover.y < finalY))
-			finalY = contentSizeForViewInPopover.y;
+		if ((realContentSize.y > 0) && (realContentSize.y < finalY))
+			finalY = realContentSize.y;
 		
 		//Get final origin X and Y
 		int originX = (originRect.centerX()-popoverLayoutRect.left) - (finalX/2) ;
@@ -473,11 +477,11 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 		
 		//Get final width and height
 		int finalX = xAvailable;
-		if ((contentSizeForViewInPopover.x > 0) && (contentSizeForViewInPopover.x < finalX))
-			finalX = contentSizeForViewInPopover.x;
+		if ((realContentSize.x > 0) && (realContentSize.x < finalX))
+			finalX = realContentSize.x;
 		int finalY = yAvailable;
-		if ((contentSizeForViewInPopover.y > 0) && (contentSizeForViewInPopover.y < finalY))
-			finalY = contentSizeForViewInPopover.y;
+		if ((realContentSize.y > 0) && (realContentSize.y < finalY))
+			finalY = realContentSize.y;
 		
 		//Get final origin X and Y
 		int originX = (originRect.left - popoverLayoutRect.left) - finalX;
@@ -509,11 +513,11 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 		
 		//Get final width and height
 		int finalX = xAvailable;
-		if ((contentSizeForViewInPopover.x > 0) && (contentSizeForViewInPopover.x < finalX))
-			finalX = contentSizeForViewInPopover.x;
+		if ((realContentSize.x > 0) && (realContentSize.x < finalX))
+			finalX = realContentSize.x;
 		int finalY = yAvailable;
-		if ((contentSizeForViewInPopover.y > 0) && (contentSizeForViewInPopover.y < finalY))
-			finalY = contentSizeForViewInPopover.y;
+		if ((realContentSize.y > 0) && (realContentSize.y < finalY))
+			finalY = realContentSize.y;
 		
 		//Get final origin X and Y
 		int originX = (originRect.right - popoverLayoutRect.left);
@@ -617,6 +621,11 @@ public class PopoverView extends RelativeLayout implements OnTouchListener{
 	 */
 	public void setContentSizeForViewInPopover(Point contentSizeForViewInPopover) {
 		this.contentSizeForViewInPopover = contentSizeForViewInPopover;
+		//Save the real content size
+		realContentSize = new Point(contentSizeForViewInPopover);
+		realContentSize.x += popoverView.getPaddingLeft()+popoverView.getPaddingRight();
+		realContentSize.y += popoverView.getPaddingTop()+popoverView.getPaddingBottom();
+		
 	}
 
 	/**
